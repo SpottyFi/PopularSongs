@@ -24,7 +24,7 @@
 
 #### POST (`/artist`) - Add a song to an artist's album with given artist and album IDs
 
-```javascript
+```
 {
     artistId: [REQUIRED: The song's artist ID],
     albumId: [REQUIRED: The song's album ID],
@@ -39,7 +39,7 @@
 
 #### PUT (`/artist/update`) - Update a song's information using it's ID
 
-```javascript
+```
 {
     artistId: [REQUIRED: The song's artist ID],
     albumId: [REQUIRED: The song's album ID],
@@ -53,7 +53,7 @@
 
 #### DELETE (`/artist/delete`) - Delete a song from an album
 
-```javascript
+```
 {
     artistId: [REQUIRED: The song's artist ID],
     albumId: [REQUIRED: The song's album ID],

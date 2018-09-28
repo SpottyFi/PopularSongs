@@ -11,7 +11,9 @@
     "clear": "jest --clearCache",
     "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
-    "seed": "node database/seeding_script.js"
+    "seed": "node database/seeding_script.js",
+    "gen-data": "node seed/seed.js",
+    "upload-local-data": "cd seed && ./mongo_export.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
@@ -54,10 +56,14 @@
     "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "faker": "^4.1.0",
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.3.1",
+    "grunt-run": "^0.8.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^6.0.4",
     "prettier": "^1.14.3",
+    "time-grunt": "^1.4.0",
     "webpack": "^2.2.1",
     "webpack-cli": "^3.1.0"
   },

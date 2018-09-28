@@ -1,10 +1,10 @@
 const faker = require('faker'); // eslint-disable-line import/no-extraneous-dependencies
 const fs = require('fs');
 
-const stream = fs.createWriteStream('../seed_data1.json');
+const stream = fs.createWriteStream('seed/data/seed_data1.json');
 
 stream.write('[');
-const { MAX } = process.env;
+const MAX = parseInt(process.env.MAX, 10);
 let counter = 0;
 for (let i = 1; i <= MAX; i += 1) {
   const artist = {

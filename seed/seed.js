@@ -10,19 +10,21 @@ const subProcessCallback = (err, stdout, stderr) => {
   console.log(stdout);
 };
 
-const TOTAL = 25000;
-const MAX = Math.ceil(TOTAL / 4);
+const TOTAL_SONGS = 10000000;
+const TOTAL_ARTISTS = TOTAL_SONGS / 40; // ~10 songs per album, ~4 albums per artist
+const MAX = Math.ceil(TOTAL_ARTISTS / 4);
 
 exec('node ./seed/seed1.js', { env: { MAX } }, subProcessCallback);
 exec('node ./seed/seed2.js', { env: { MAX } }, subProcessCallback);
 exec('node ./seed/seed3.js', { env: { MAX } }, subProcessCallback);
 
-const stream = fs.createWriteStream('../seed_data.json');
+const stream = fs.createWriteStream('seed/data/seed_data.json');
 
 console.log('Starting data generation');
 stream.write('[');
 let counter = 0;
 for (let i = 1; i <= MAX; i += 1) {
+  console.log(`~${i * 4} artists generated`);
   const artist = {
     artistID: i,
     artistName: faker.name.findName(),

@@ -1,10 +1,10 @@
 const faker = require('faker'); // eslint-disable-line import/no-extraneous-dependencies
 const fs = require('fs');
 
-const stream = fs.createWriteStream('../seed_data2.json');
+const stream = fs.createWriteStream('seed/data/seed_data2.json');
 
 stream.write('[');
-const { MAX } = process.env;
+const MAX = parseInt(process.env.MAX, 10);
 let counter = 0;
 for (let i = 1; i <= MAX; i += 1) {
   const artist = {
@@ -41,5 +41,5 @@ for (let i = 1; i <= MAX; i += 1) {
 }
 stream.write(']');
 stream.end(() => {
-  console.log('SEED SCRIPT 2:', counter, 'albums created');
+  console.log('SEED SCRIPT 3:', counter, 'albums created');
 });

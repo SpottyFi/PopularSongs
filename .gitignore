@@ -25,4 +25,4 @@ build/
 dist/
 
 # Seed Data Files
-seed_data*
+*.csv

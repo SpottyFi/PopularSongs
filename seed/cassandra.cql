@@ -1,5 +1,8 @@
 CREATE KEYSPACE IF NOT EXISTS spottyfi with REPLICATION = {'class': 'SimpleStrategy', 'replication_factor' : 1};
-CREATE TABLE spottyfi.artists (
+
+USE spottyfi;
+
+CREATE TABLE IF NOT EXISTS artists (
  artist_id int,
  album_id int,
  song_id int,
@@ -11,9 +14,5 @@ CREATE TABLE spottyfi.artists (
  song_streams int,
  song_length int,
  song_popularity int,
- PRIMARY KEY (artist_id, album_id, song_popularity)
-);
-
-USE spottyfi;
-
-COPY artists(artist_id, album_id, song_id, artist_name, album_name, album_image, published_year, song_name, song_streams, song_length, song_popularity) FROM './data/nosql/artists.csv' WITH HEADER=TRUE AND DELIMITER='|';
+ PRIMARY KEY (artist_id, album_id, song_popularity, song_streams)
+) WITH CLUSTERING ORDER BY (album_id ASC, song_popularity DESC, song_streams DESC);

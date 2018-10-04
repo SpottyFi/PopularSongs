@@ -5,7 +5,6 @@ USE spottyfi;
 CREATE TABLE IF NOT EXISTS artists (
  artist_id int,
  album_id int,
- song_id int,
  artist_name text,
  album_name text,
  album_image text,

@@ -14,7 +14,7 @@
     "seed": "node database/seeding_script.js",
     "gen-data": "node seed/seed.js",
     "import-postgres": "cd seed && ./postgres.sh",
-    "import-cassandra": "cd seed && ./cassandra.sh"
+    "import-scylla": "cd seed && ./scylla.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",

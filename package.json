@@ -27,6 +27,7 @@
     "cors": "^2.8.4",
     "css-loader": "^1.0.0",
     "express": "^4.16.3",
+    "express-cassandra": "^2.2.3",
     "jquery": "^3.3.1",
     "mongoose": "^5.2.13",
     "popper.js": "^1.14.4",

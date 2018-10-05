@@ -57,7 +57,7 @@ for (let artistId = 1; artistId <= max; artistId += 1) {
 
       // Push a row to entries string with data for all the required columns
       entries +=
-        `\n${artistId}|${albumId}|${songId}|'${artistName}'|'${albumName}'|'${albumImage}'` +
+        `\n${artistId}|${albumId}|'${artistName}'|'${albumName}'|'${albumImage}'` +
         `|${publishedYear}|'${songName}'|${streams}|${length}|${popularity}`;
     }
   }

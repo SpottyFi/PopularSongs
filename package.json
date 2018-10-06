@@ -30,6 +30,7 @@
     "express-cassandra": "^2.2.3",
     "jquery": "^3.3.1",
     "mongoose": "^5.2.13",
+    "newrelic": "^4.9.0",
     "popper.js": "^1.14.4",
     "rc-dropdown": "^2.2.0",
     "rc-menu": "^7.4.8",

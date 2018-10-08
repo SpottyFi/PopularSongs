@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "clear": "jest --clearCache",
-    "start": "node server/index.js",
+    "start": "node server/master.js",
     "react-dev": "webpack -d --watch",
     "seed": "node database/seeding_script.js",
     "gen-data": "node seed/seed.js",

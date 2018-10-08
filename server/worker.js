@@ -69,4 +69,7 @@ app.get('/artist/:artistId/:albumId', (req, res) => {
 
 const PORT = 3000;
 
-app.listen(PORT, console.log(`listening on port ${PORT}...`));
+app.listen(
+  PORT,
+  console.log(`Process ${process.pid} is listening to all incoming requests on port ${PORT}...`)
+);

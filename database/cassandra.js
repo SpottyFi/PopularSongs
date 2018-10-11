@@ -63,4 +63,18 @@ const getTopTen = artistId => {
     });
 };
 
-module.exports.getTopTen = getTopTen;
+const addSong = song => {
+  const newSong = new models.instance.Artists(song);
+  return newSong.save();
+};
+
+const updateSong = song => {
+  const { artist_id, album_id, song_name } = song;
+  return models.instance.Artists.update({ artist_id, album_id, song_name }, song);
+};
+
+const deleteSong = song => {
+  return models.instance.Artists.delete(song);
+};
+
+module.exports = { getTopTen, addSong, updateSong, deleteSong };

@@ -19,14 +19,20 @@ app.use(express.static(path.join(__dirname, '../public/')));
 
 app.get('/artist/:artistId', (req, res) => {
   const artistId = parseInt(req.params.artistId, 10);
+
+  const checkDb = () => {
+    return db.getTopTen(artistId).then(songs => {
+      cache.setex(artistId, 300, JSON.stringify(songs));
+      res.send(songs);
+    });
+  };
+
   getAsyncCache(artistId)
-    .then(result => res.send(result))
-    .catch(() =>
-      db.getTopTen(artistId).then(songs => {
-        cache.setex(artistId, 300, JSON.stringify(songs));
-        res.send(songs);
-      })
-    );
+    .then(result => {
+      if (result === null || result === '') return checkDb();
+      res.send(JSON.parse(result));
+    })
+    .catch(checkDb);
 });
 
 app.post('/artist/', (req, res) => {

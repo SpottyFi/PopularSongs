@@ -1,11 +1,12 @@
 const models = require('express-cassandra');
 const path = require('path');
+const protectedData = require('../protected');
 
 models.setDirectory(path.join(__dirname, '/models')).bind(
   {
     clientOptions: {
-      contactPoints: ['127.0.0.1'],
-      protocolOptions: { port: 9042 },
+      contactPoints: [protectedData.databaseIp],
+      protocolOptions: { port: protectedData.databasePort },
       keyspace: 'spottyfi',
       queryOptions: { consistency: models.consistencies.one }
     },

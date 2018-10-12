@@ -3,8 +3,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const redis = require('redis');
+const { promisify } = require('util');
 const db = require('../database/cassandra');
+const protectedData = require('../protected');
 
+const cache = redis.createClient(protectedData.cachePort, protectedData.cacheIp);
+const getAsyncCache = promisify(cache.get).bind(cache);
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,9 +19,14 @@ app.use(express.static(path.join(__dirname, '../public/')));
 
 app.get('/artist/:artistId', (req, res) => {
   const artistId = parseInt(req.params.artistId, 10);
-  db.getTopTen(artistId).then(songs => {
-    res.send(songs);
-  });
+  getAsyncCache(artistId)
+    .then(result => res.send(result))
+    .catch(() =>
+      db.getTopTen(artistId).then(songs => {
+        cache.setex(artistId, 300, JSON.stringify(songs));
+        res.send(songs);
+      })
+    );
 });
 
 app.post('/artist/', (req, res) => {
@@ -47,7 +57,7 @@ app.delete('/artist/delete', (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
-const PORT = 3000;
+const PORT = protectedData.port;
 
 app.listen(
   PORT,

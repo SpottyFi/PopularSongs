@@ -1,7 +1,7 @@
 {
-  "name": "spotify",
-  "description": "> Project description",
-  "author": "Andrew MacDonald",
+  "name": "spottify",
+  "description": "A web based music player based on the popular music stremaing service Spotify",
+  "author": "Andrew MacDonald & Vikram Raja",
   "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
@@ -10,6 +10,7 @@
     "test": "jest",
     "clear": "jest --clearCache",
     "start": "node server/master.js",
+    "start-dev": "nodemon server/worker.js",
     "react-dev": "webpack -d --watch",
     "seed": "node database/seeding_script.js",
     "gen-data": "node seed/seed.js",
@@ -38,6 +39,7 @@
     "react-css-modules": "^4.7.7",
     "react-dom": "^15.4.2",
     "reactstrap": "^6.4.0",
+    "redis": "^2.8.0",
     "style-loader": "^0.23.0"
   },
   "devDependencies": {

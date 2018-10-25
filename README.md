@@ -1,6 +1,6 @@
 # Spottyfi
 
-> A spotify app clone
+> An online music streaming service
 
 ## Related Projects
 

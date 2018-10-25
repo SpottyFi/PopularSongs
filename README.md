@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
+- https://github.com/SpottyFi/AlbumList-MusicPlayer
+- https://github.com/SpottyFi/Header
+- https://github.com/SpottyFi/RelatedArtists
+- https://github.com/SpottyFi/SpottyFi (Proxy service that ties all 4 micro-services together)
 
 ## Table of Contents
 
